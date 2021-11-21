@@ -13,6 +13,10 @@ app.use('/message', messageRoute);
 //userRoute
 const userRoute = require('./src/routes/userroute');
 app.use('/user',userRoute);
+
+// cart route
+const cartRoute = require('./src/routes/cartRoute');
+app.use('/cart',cartRoute);
 //product route
 const productRoute = require('./src/routes/productRoute')
 app.use('/product', productRoute);

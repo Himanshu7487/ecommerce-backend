@@ -19,6 +19,23 @@ module.exports.getUserById = async(req,res)=>{
         res.status(400).send({success: false, message: error.message});
     }
 }
+module.exports.Login = async(req, res)=>{
+    try {
+        let user = await User.findOne({username: req.body.username})
+        if(!user){
+            res.status(400).send({success: false, message: "user not registered"})
+        }else{
+            if(req.body.password!=user.password){
+                res.status(400).send({success: false, message: "incorrect password"})
+            }else{
+                res.status(200).send({success:true, user});
+            }
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(400).send({success: false, message: error.message});
+    }
+}
 module.exports.createUser= async(req,res)=>{
     try{
         const{username, email, password} = req.body;

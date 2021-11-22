@@ -12,6 +12,9 @@ const cartSchema = new Schema({
     },
     userId:{
         type: String
+    },
+    quantity:{
+        type: Number
     }
     
 })
